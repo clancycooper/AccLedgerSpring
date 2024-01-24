@@ -43,7 +43,7 @@ public class TransactionController {
             return transactionDAO.getTransactionsByMonthToDate(date);
         } catch (Exception e) {
             e.printStackTrace();
-            return null; // Handle error as needed
+            return null;
         }
     }
 
@@ -53,7 +53,7 @@ public class TransactionController {
             return transactionDAO.getTransactionsByYearToDate(date);
         } catch (Exception e) {
             e.printStackTrace();
-            return null; // Handle error as needed
+            return null;
         }
     }
 
@@ -66,7 +66,7 @@ public class TransactionController {
             return transactionDAO.getTransactionsForPreviousMonth(parsedDate);
         } catch (ParseException e) {
             e.printStackTrace();
-            return null; // Handle error as needed
+            return null;
         }
     }
 
