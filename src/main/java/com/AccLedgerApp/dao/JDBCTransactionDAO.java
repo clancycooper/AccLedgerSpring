@@ -158,6 +158,35 @@ public class JDBCTransactionDAO implements TransactionDAO {
         return transactions;
     }
 
+    @Override
+    public List<Transaction> getPayments() {
+        String query = "SELECT * FROM transactions WHERE amount < 0";
+        return executeQuery(query);
+    }
+
+    @Override
+    public List<Transaction> getDeposits() {
+        String query = "SELECT * FROM transactions WHERE amount > 0";
+        return executeQuery(query);
+    }
+
+    private List<Transaction> executeQuery(String query) {
+        List<Transaction> transactions = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                Transaction transaction = mapResultSetToTransaction(resultSet);
+                transactions.add(transaction);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return transactions;
+    }
+
+
     private Transaction mapResultSetToTransaction(ResultSet resultSet) throws SQLException {
         Transaction transaction = new Transaction();
         transaction.setId(resultSet.getLong("id"));

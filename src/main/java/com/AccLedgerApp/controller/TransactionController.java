@@ -80,5 +80,16 @@ public class TransactionController {
             return null; // Handle error as needed
         }
     }
+
+    @GetMapping("/payments")
+    public List<Transaction> getPayments() {
+        return transactionDAO.getPayments();
+    }
+
+    @GetMapping("/deposits")
+    public List<Transaction> getDeposits() {
+        return transactionDAO.getDeposits();
+    }
+
 }
 

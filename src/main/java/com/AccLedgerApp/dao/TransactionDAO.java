@@ -18,4 +18,9 @@ public interface TransactionDAO {
     List<Transaction> getTransactionsForPreviousMonth(Date date);
 
     List<Transaction> getTransactionsForPreviousYear(String date);
+
+    List<Transaction> getPayments();
+
+    List<Transaction> getDeposits();
+
 }
