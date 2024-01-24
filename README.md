@@ -35,6 +35,75 @@ Based on Clancy's original Accounting Ledger App (https://github.com/clancycoope
    - ### Updated:
      ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/90b55642-8c24-4966-b3e4-aeefe5431b62)
 
+# List of tests we can now run in Postman:
+## Create Transaction:
+- Method: POST
+- Endpoint: http://localhost:8080/transactions/create  
+- Response: "Transaction created successfully."
+### Body (example):
+  {  
+  "date": "2024-01-23",  
+  "time": "11:30:35",  
+  "description": "Paycheck",  
+  "vendor": "Best Buy",  
+  "amount": 100.00  
+  }  
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/2fdc982a-f70a-4bbe-8a0f-708908d6306a)
+
+
+## Get All Transactions:
+- Method: GET
+- Endpoint: http://localhost:8080/transactions/all
+- Response: List of all transactions
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/f3c674a5-ddb9-470a-81c6-3457baf99d75)
+
+
+## Get Transactions by Month to Date:
+- Method: GET
+- Endpoint: http://localhost:8080/transactions/month-to-date/{date}
+- Replace {date} with the desired date (e.g., "2024-01-23")
+- Response: List of transactions for the specified month to date
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/e66ccb0d-e71d-49b5-8df1-cd07cc488083)
+
+
+## Get Transactions by Year to Date:
+- Method: GET
+- Endpoint: http://localhost:8080/transactions/year-to-date/{date}
+- Replace {date} with the desired date (e.g., "2024")
+- Response: List of transactions for the specified year to date
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/64ef86ee-7702-459b-b88a-867505da6b13)
+
+
+## Get Transactions for Previous Month:
+- Method: GET
+- Endpoint: http://localhost:8080/transactions/previous-month/{date}
+- Replace {date} with the desired date (e.g., "2024-01-23")
+- Response: List of transactions for the previous month
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/b0364b9f-1c56-43da-800d-5b67c654851d)
+
+
+## Get Transactions for Previous Year:
+- Method: GET
+- Endpoint: http://localhost:8080/transactions/previous-year/{date}
+- Replace {date} with the desired date (e.g., "2024")
+- Response: List of transactions for the previous year
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/944cfcf6-e847-4433-a1a3-27999b34ac4a)
+
+
+## Get Payments:
+- Method: GET
+- Endpoint: http://localhost:8080/transactions/payments
+- Response: List of payment transactions (amount < 0)
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/0520c8c7-3b8f-44d0-8433-5d37d8f24547)
+
+
+## Get Deposits:
+- Method: GET
+- Endpoint: http://localhost:8080/transactions/deposits
+- Response: List of deposit transactions (amount > 0)
+  ![image](https://github.com/clancycooper/AccLedgerSpring/assets/141694194/0284968a-3f48-44a9-bb73-491d40b07ad6)
+
+
 
 
 
